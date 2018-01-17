@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="md-headline">Sensor Overview</h1>
-    <RoomCard v-for="room in allRooms" v-bind:key="room.number" v-bind:room="room"/>
+    <RoomCard class="room-card" v-for="room in allRooms" v-bind:key="room.number" v-bind:room="room"/>
   </div>
 </template>
 
@@ -23,4 +23,7 @@ export default {
 </script>
 
 <style scoped>
+.room-card {
+  margin-bottom: 16px;
+}
 </style>
