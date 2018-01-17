@@ -1,5 +1,7 @@
 <template>
-<h1>Sensor Overview</h1>
+  <div>
+    <h1 class="md-headline">Sensor Overview</h1>
+  </div>
 </template>
 
 <script>
