@@ -1,13 +1,22 @@
 import datetime
-from gpiozero import Button
+import sys
 from signal import pause
+from urllib import request
+
+from gpiozero import Button
+
+ip = sys.argv[0]
+port = sys.argv[1]
+base_url = 'http://' + ip + ':' + port + '/'
 
 
 def is_locking():
+    request.urlopen(base_url + 'lock')
     print("{} - Locking...".format(datetime.datetime.now()))
 
 
 def is_releasing():
+    request.urlopen(base_url + 'unlock')
     print("{} - Releasing...".format(datetime.datetime.now()))
 
 
