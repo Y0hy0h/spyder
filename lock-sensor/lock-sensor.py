@@ -11,7 +11,7 @@ def is_releasing():
     print("{} - Releasing...".format(datetime.datetime.now()))
 
 
-lock_sensor = Button(15)
+lock_sensor = Button(15, bounce_time=0.1)
 lock_sensor.when_pressed = is_locking
 lock_sensor.when_released = is_releasing
 
