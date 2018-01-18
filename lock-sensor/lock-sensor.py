@@ -12,7 +12,7 @@ def is_releasing():
 
 
 lock_sensor = Button(15, hold_time=0.1)
-lock_sensor.when_hold = is_locking
+lock_sensor.when_held = is_locking
 lock_sensor.when_released = is_releasing
 
 pause()
