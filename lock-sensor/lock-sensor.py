@@ -1,13 +1,14 @@
+import datetime
 from gpiozero import Button
 from signal import pause
 
 
 def is_locking():
-    print("Locking...")
+    print("{} - Locking...".format(datetime.datetime.now()))
 
 
 def is_releasing():
-    print("Releasing...")
+    print("{} - Releasing...".format(datetime.datetime.now()))
 
 
 lock_sensor = Button(15)
