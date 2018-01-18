@@ -12,5 +12,6 @@ def is_releasing():
 
 lock_sensor = Button(15)
 lock_sensor.when_pressed = is_locking
+lock_sensor.when_released = is_releasing
 
 pause()
