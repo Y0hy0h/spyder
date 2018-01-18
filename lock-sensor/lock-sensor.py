@@ -5,8 +5,8 @@ from urllib import request
 
 from gpiozero import Button
 
-ip = sys.argv[0]
-port = sys.argv[1]
+ip = sys.argv[1]
+port = sys.argv[2]
 base_url = 'http://' + ip + ':' + port + '/'
 
 
