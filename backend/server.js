@@ -15,25 +15,31 @@ let data = {
 }
 
 app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/index.html')
+    res.sendFile(__dirname + '/index.html')
 })
 
-app.get('/status', function(req, res) {
+app.get('/status', function (req, res) {
     res.json(data)
 })
 
 app.get('/lock', function (req, res) {
-    io.emit('lock-update', data.is_locked)
+    data.is_locked = true
+    broadcast_update()
     res.send('Locked.')
 })
 app.get('/unlock', function (req, res) {
-    io.emit('lock-update', data.is_locked)
+    data.is_locked = false
+    broadcast_update()
     res.send('Unlocked.')
 })
 
-io.on('connection', function(socket) {
+io.on('connection', function (socket) {
     socket.emit('lock-update', data.is_locked)
 })
+
+function broadcast_update() {
+    io.emit('lock-update', data.is_locked)
+}
 
 http.listen(3000, function () {
     console.log("We have started our server on port 3000");
