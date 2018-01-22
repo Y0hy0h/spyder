@@ -3,22 +3,31 @@ let exphbs = require('express-handlebars')
 
 const app = express()
 
+const http = require('http').Server(app)
+const io = require('socket.io')(http)
+
+
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-let is_locked = false
 app.get('/', function (req, res) {
-  res.render('index', { lockStatus: is_locked ? "Is locked." : "Is not locked."})
+  res.render('index')
 })
+
 app.get('/lock', function (req, res) {
-    is_locked = true;
+    io.emit('lock-update', true)
     res.send('Locked.')
 })
 app.get('/unlock', function (req, res) {
-    is_locked = false;
+    io.emit('lock-update', false)
     res.send('Unlocked.')
 })
 
-app.listen(3000, function () {
+io.on('connection', function(socket) {
+    console.log("New connection")
+    io.emit('lock-update', true)
+})
+
+http.listen(3000, function () {
     console.log("We have started our server on port 3000");
 })

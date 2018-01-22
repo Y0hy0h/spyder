@@ -1,3 +1,12 @@
 <h1>Lock Status</h1>
-<p id="lock-status">{{ lockStatus }}</p>
-<script>setTimeout(function () {location.reload()}, 1000)</script>
+<p id="lock-status">Looking up status...</p>
+
+<script>
+    $(function () {
+        const socket = io();
+        socket.on('lock-update', function(is_locked) {
+            console.log('Updating')
+            $('#lock-status').text(is_locked ? 'Locked' : 'Unlocked')
+        })
+    });
+</script>
