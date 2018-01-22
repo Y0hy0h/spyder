@@ -14,7 +14,7 @@
 <script>
     $(function () {
         const socket = io();
-        socket.on('lock-update', function(is_locked) {
+      socket.on('lockUpdate', function (is_locked) {
             console.log('Updating')
             $('#lock-status').text(is_locked ? 'Locked' : 'Unlocked')
         })

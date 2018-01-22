@@ -18,6 +18,11 @@ export default {
     return {
       allRooms: [new Room(1)]
     }
+  },
+  sockets: {
+    lockUpdate (isLocked) {
+      this.allRooms[0].doorIsLocked = isLocked
+    }
   }
 }
 </script>

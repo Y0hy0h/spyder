@@ -14,8 +14,10 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "socket.io-client": "^2.0.4",
     "vue": "^2.5.2",
-    "vue-material": "^1.0.0-beta-7"
+    "vue-material": "^1.0.0-beta-7",
+    "vue-socket.io": "^2.1.1-b"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

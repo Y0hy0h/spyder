@@ -34,11 +34,11 @@ app.get('/unlock', function (req, res) {
 })
 
 io.on('connection', function (socket) {
-    socket.emit('lock-update', data.is_locked)
+  socket.emit('lockUpdate', data.is_locked)
 })
 
 function broadcast_update() {
-    io.emit('lock-update', data.is_locked)
+  io.emit('lockUpdate', data.is_locked)
 }
 
 http.listen(3000, function () {
