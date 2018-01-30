@@ -11,7 +11,7 @@ import VueSocketIO from 'vue-socket.io'
 
 Vue.use(VueMaterial)
 
-export const SocketInstance = socketio('http://localhost:3000')
+export const SocketInstance = socketio('https://common-quicksand.glitch.me:443')
 Vue.use(VueSocketIO, SocketInstance)
 
 Vue.config.productionTip = false
